@@ -88,7 +88,7 @@ nextBtn.addEventListener('click', (e) => {
   e.preventDefault();
   if (stepNum === 0) {
     // form validation
-    // if (!formValidation()) return;
+    if (!formValidation()) return;
     stepNum++;
     showStep(stepNum);
   } else if (stepNum === 1) {
