@@ -12,7 +12,7 @@ const selectedAddsOn = () => {
   addsonCards.forEach((card) => {
     let price = card.querySelector('.sbscription__price').textContent;
     let name = card.querySelector('.card__name').textContent;
-    let planDur = card.querySelector('#sbscription__duration').textContent;
+    let planDur = card.querySelector('.sbscription__duration').textContent;
     // checkbox checked of selected cards
     if (card.classList.contains('selected')) {
       addOnArr.push({
@@ -200,7 +200,7 @@ planCards.forEach((card) => {
     let target = e.currentTarget;
     let planName = target.querySelector('.card__name').textContent;
     let planPrice = target.querySelector('.sbscription__price').textContent;
-    let planDur = target.querySelector('#sbscription__duration').textContent;
+    let planDur = target.querySelector('.sbscription__duration').textContent;
     selectedPlan = { planName, planPrice, planDur };
     // remove selected class of all cards
     planCards.forEach((card) => card.classList.remove('selected'));
@@ -236,7 +236,7 @@ const yearlyAdsOnPrice = [10, 20, 20];
 const setplan = (card, plan, xx) => {
   card.forEach((card, i) => {
     card.querySelector('.sbscription__price').textContent = `${plan[i]}`;
-    card.querySelector('#sbscription__duration').textContent = `${xx}`;
+    card.querySelector('.sbscription__duration').textContent = `${xx}`;
   });
 };
 setplan(planCards, monthlyPlanPrices, 'mo');
