@@ -106,7 +106,7 @@ nextBtn.addEventListener('click', (e) => {
   } else if (stepNum === 3) {
     stepNum++;
     showStep(stepNum);
-  }
+  } else return;
 });
 
 // PREVIUOS STEP BUTTON
