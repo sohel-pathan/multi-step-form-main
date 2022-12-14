@@ -1,0 +1,668 @@
+/* ============================== */
+/* CSS VARIABLES */
+/* ============================== */
+:root {
+  /* Primary color */
+  --Marine-blue: hsl(213, 96%, 18%);
+  --Purplish-blue: hsl(243, 100%, 62%);
+  --Pastel-blue: hsl(228, 100%, 84%);
+  --Light-blue: hsl(206, 94%, 87%);
+  --Strawberry-red: hsl(354, 84%, 57%);
+  /* Neutral color */
+  --Cool-gray: hsl(231, 11%, 63%);
+  --Light-gray: hsl(229, 24%, 87%);
+  --Magnolia: hsl(217, 100%, 97%);
+  --Alabaster: hsl(231, 100%, 99%);
+  --White: hsl(0, 0%, 100%);
+}
+
+/* ============================== */
+/* RESET DEFAULT CSS */
+/* ============================== */
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* remove default list style */
+li {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  font-size: 1.6rem;
+  background-color: var(--Magnolia);
+  position: relative;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button {
+  font: inherit;
+}
+
+/* images*/
+img {
+  width: 100%;
+}
+
+/* 1rem equal to 10px */
+html {
+  font-size: 62.5%;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* ============================== */
+/* REUSABLE CSS CLASSES */
+/* ============================== */
+
+.main__title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--Marine-blue);
+  padding-bottom: 5px;
+}
+
+.description {
+  color: var(--Cool-gray);
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding-bottom: 30px;
+}
+.card {
+  border: 2px solid var(--Light-gray);
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 10px;
+  }
+  .addon__card {
+    min-height: 90px;
+  }
+}
+
+.card:hover {
+  border-color: var(--Pastel-blue);
+}
+
+.card.selected {
+  background-color: var(--Magnolia);
+  border-color: var(--Pastel-blue);
+}
+
+.subtitle {
+  color: var(--Light-gray);
+  font-size: 1.4rem;
+  font-weight: 400;
+  padding-bottom: 2px;
+}
+.mini__title {
+  color: var(--White);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.card__price {
+  color: var(--Cool-gray);
+  font-weight: 500;
+}
+
+.card__name {
+  color: var(--Marine-blue);
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: 1.8rem;
+  margin-bottom: 2px;
+}
+.card__description {
+  color: var(--Cool-gray);
+  font-weight: 500;
+}
+
+/* ============================== */
+/* MAIN */
+/* ============================== */
+.main {
+  max-width: 1050px;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--White);
+  padding: 10px;
+  place-self: center;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 0;
+    background-color: var(--Magnolia);
+    align-items: flex-start;
+  }
+}
+/* ============================== */
+/* FORM */
+/* ============================== */
+.step__container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 25px;
+  min-height: 600px;
+}
+
+@media (min-width: 920px) {
+  .step__container {
+    gap: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .step__container {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-bottom: 90px;
+  }
+}
+
+/* ============================== */
+/* SIDEBAR */
+/* ============================== */
+.sidebar {
+  width: 100%;
+  border-radius: 10px;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  background-image: url('./assets/images/bg-sidebar-desktop.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 30px 20px;
+  margin-right: auto;
+}
+.step__indecater {
+  display: flex;
+  align-items: center;
+  padding-bottom: 30px;
+}
+.indecater__num {
+  border: 1px solid var(--Light-gray);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--Light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-right: 15px;
+}
+
+.indecater__num.active {
+  background-color: var(--Light-blue);
+  color: var(--Marine-blue);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    border-radius: 0;
+    background-image: url('./assets/images/bg-sidebar-mobile.svg');
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 190px;
+  }
+  .step__indecater {
+    padding: 0;
+  }
+  .step__indecater > .indecater__text {
+    display: none;
+  }
+  .step__indecater > .indecater__num {
+    margin: 0 10px;
+  }
+}
+/* ============================== */
+/* FORM STEPS */
+/* ============================== */
+.step {
+  display: none;
+}
+.step.active {
+  display: inline-block;
+}
+
+.form__steps {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  padding-top: 25px;
+  padding-right: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .form__steps {
+    padding: 0;
+    align-items: center;
+  }
+  .step {
+    width: 95%;
+    background-color: var(--White);
+    margin-top: -70px;
+    border-radius: 10px;
+    padding: 20px 15px;
+  }
+}
+
+/* personal info | step1 */
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list__item {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input__labe {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 5px;
+}
+
+.label {
+  color: var(--Marine-blue);
+  font-weight: 500;
+}
+
+.warning {
+  color: var(--Strawberry-red);
+  font-weight: 500;
+}
+
+.input {
+  padding: 10px;
+  border: 2px solid var(--Cool-gray);
+  border-radius: 5px;
+  width: 100%;
+  font-weight: 500;
+  color: var(--Marine-blue);
+  font-size: 1.7rem;
+}
+
+.input:hover {
+  border-color: var(--Pastel-blue);
+  transition: 0.25s;
+}
+
+.input.error,
+.input.error:hover {
+  border-color: var(--Strawberry-red);
+  transition: 0.25s;
+}
+
+/* select your plan | step2 */
+/* select plan warning */
+#select-plan-error {
+  color: var(--Strawberry-red);
+  font-weight: 700;
+  text-align: center;
+  height: 20px;
+  margin-bottom: 5px;
+}
+
+.plan__card_container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  min-height: 330px;
+}
+
+.plan__card {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.plan__card > .card__img {
+  margin-bottom: auto;
+  width: 45px;
+  height: 45px;
+  margin-right: 25px;
+}
+
+.toggle__container {
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background-color: var(--Magnolia);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.toggle__container > p {
+  color: var(--Marine-blue);
+  font-weight: 500;
+}
+
+.toggle {
+  width: 40px;
+  height: 20px;
+  border-radius: 15px;
+  margin: 5px 0;
+  background-color: var(--Marine-blue);
+  display: flex;
+  align-items: center;
+  margin: 0 12px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.toggle__circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin: 0 2px;
+  background-color: var(--White);
+}
+
+.yearly__benefit {
+  color: var(--Marine-blue);
+  font-size: 1.4rem;
+  font-weight: 400;
+  padding-top: 5px;
+  display: none;
+}
+
+.yearly__benefit.show {
+  display: inline-block;
+}
+
+/* add functionality to toggle */
+.toggle.active {
+  justify-content: flex-end;
+}
+.monthly__plan {
+  opacity: 0.5;
+}
+.yearly__plan {
+  opacity: 0.5;
+}
+.selected__plan {
+  opacity: 1;
+}
+
+@media (min-width: 850px) {
+  .plan__card_container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    padding-bottom: 35px;
+  }
+  .plan__card {
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: pointer;
+  }
+  .plan__card > .card__img {
+    width: 50px;
+    height: 50px;
+  }
+}
+/* ============================== */
+/* BUTTONS */
+/* ============================== */
+.button__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+.next__button {
+  color: var(--Light-gray);
+  background-color: var(--Marine-blue);
+}
+.next__button:hover {
+  transition: background 0.3s;
+  background-color: var(--Purplish-blue);
+}
+.prev__button {
+  color: var(--Cool-gray);
+  background-color: var(--White);
+  padding: 0;
+}
+.prev__button:hover {
+  color: var(--Marine-blue);
+}
+
+@media (max-width: 768px) {
+  .button__container {
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    background-color: var(--White);
+    width: 100%;
+    padding: 15px 10px;
+  }
+}
+
+/* add hidden class to hide previous step button on the first step */
+.button.hidden {
+  opacity: 0;
+  cursor: auto;
+}
+/* add hidden class t0 hide button container */
+.button__container.hidden {
+  display: none;
+}
+/* STEP3 | ADDS-ON */
+.addon__card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* checkbox custom css */
+.checkbox[type='checkbox'] {
+  margin-right: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: none;
+  font: inherit;
+  color: none;
+  width: 1.2em;
+  height: 1.2em;
+  border: 0.15em solid var(--Light-gray);
+  cursor: pointer;
+  border-radius: 0.2em;
+  transform: translateY(-0.075em);
+  /*center*/
+  display: grid;
+  place-content: center;
+}
+
+/* checbox hover only for big screen */
+@media (min-width: 480px) {
+  .checkbox[type='checkbox']:hover {
+    border-color: var(--Marine-blue);
+    transition: 0.25s;
+  }
+}
+
+.checkbox[type='checkbox']:checked {
+  border-color: var(--Purplish-blue);
+  background-color: var(--Purplish-blue);
+}
+
+.checkbox[type='checkbox']::before {
+  content: '';
+  width: 1em;
+  height: 1em;
+  box-shadow: inset 1em 1em var(--White);
+  transform-origin: bottom left;
+  -webkit-clip-path: polygon(
+    14% 44%,
+    0 65%,
+    50% 100%,
+    100% 16%,
+    80% 0%,
+    43% 62%
+  );
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transition: 120ms transform ease-in-out;
+  transform: scale(0);
+}
+
+.checkbox[type='checkbox']:checked::before {
+  transform: scale(1);
+}
+
+.card__text {
+  margin-right: auto;
+}
+
+/* step 4 */
+.finishingup__card_container {
+  background-color: var(--Magnolia);
+  border: none;
+  padding: 10px 20px;
+  cursor: auto;
+}
+
+/* selected plan */
+.selected__plan_container {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.change__plan {
+  border: none;
+  background-color: transparent;
+  font-size: 1.9rem;
+  color: var(--Cool-gray);
+  text-decoration: underline;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.change__plan:hover {
+  color: var(--Purplish-blue);
+}
+
+#selected-plan {
+  display: flex;
+  align-items: center;
+  color: var(--Marine-blue);
+  font-size: 2.2rem;
+  font-weight: 700;
+  padding-bottom: 5px;
+}
+#selected-plan > p:nth-child(3) {
+  margin-left: auto;
+}
+#selected-plan > p:nth-child(2) {
+  margin-left: 4px;
+}
+
+/* selected add-on */
+#selected-addon > li {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  font-size: 1.9rem;
+  font-weight: 500;
+}
+/* add line between selected plan and selected add-on */
+#selected-addon > li:nth-child(1) {
+  border-top: 1px solid var(--Cool-gray);
+  padding-top: 25px;
+}
+#selected-addon > li > p:nth-child(1) {
+  color: var(--Cool-gray);
+}
+#selected-addon > li > p:nth-child(2) {
+  color: var(--Marine-blue);
+}
+
+/* total price */
+#total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px;
+}
+#total > span:nth-child(1) {
+  color: var(--Cool-gray);
+  font-size: 1.9rem;
+}
+#total > span:nth-child(2) {
+  color: var(--Purplish-blue);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+@media (max-width: 481px) {
+  #total > span:nth-child(2) {
+    font-size: 2rem;
+  }
+}
+/* last step | thank you */
+
+.last__step {
+  min-height: 100%;
+  text-align: center;
+}
+
+.final__img {
+  width: 100px;
+  height: 100px;
+  margin-top: 20%;
+  margin-inline: auto;
+  margin-bottom: 35px;
+}
+.last__step > .main__title {
+  padding-bottom: 10px;
+}
+.last__step > .description {
+  max-width: 500px;
+  margin: 0 auto;
+}
