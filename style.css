@@ -147,15 +147,12 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--White);
-  padding: 10px;
+  background-color: var(--Magnolia);
   place-self: center;
 }
 
 @media (max-width: 768px) {
   .main {
-    padding: 0;
-    background-color: var(--Magnolia);
     align-items: flex-start;
   }
 }
@@ -168,6 +165,8 @@ html {
   grid-template-columns: 290px 1fr;
   gap: 25px;
   min-height: 600px;
+  background-color: var(--White);
+  padding: 15px;
 }
 
 @media (min-width: 920px) {
@@ -182,7 +181,9 @@ html {
     display: flex;
     flex-direction: column;
     gap: 0;
+    padding: 0;
     padding-bottom: 90px;
+    background-color: var(--Magnolia);
   }
 }
 
