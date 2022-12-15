@@ -195,7 +195,7 @@ html {
   border-radius: 10px;
   grid-column-start: 1;
   grid-column-end: 2;
-  background-image: url('./assets/images/bg-sidebar-desktop.svg');
+  background: url('./assets/images/bg-sidebar-desktop.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
