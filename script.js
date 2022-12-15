@@ -214,7 +214,7 @@ const addsonCards = document.querySelectorAll('.addon__card');
 addsonCards.forEach((card) => {
   card.addEventListener('click', (e) => {
     let target = e.currentTarget;
-    // slect card
+    // select card
     target.classList.toggle('selected');
 
     // checkbox checked of selected cards
