@@ -48,16 +48,16 @@ button {
   font: inherit;
 }
 
-/* images*/
+/* images */
 img {
   width: 100%;
 }
 
-/* 1rem equal to 10px */
+/* maek 1rem equal to 10px */
 html {
   font-size: 62.5%;
 }
-
+/* reduce font size for small screen */
 @media (max-width: 768px) {
   html {
     font-size: 60%;
@@ -67,6 +67,15 @@ html {
 /* ============================== */
 /* REUSABLE CSS CLASSES */
 /* ============================== */
+
+/* HIDE STEP */
+.step {
+  display: none;
+}
+/* SHOW ACTIVE STEP */
+.step.active {
+  display: inline-block;
+}
 
 .main__title {
   font-size: 3.2rem;
@@ -81,6 +90,7 @@ html {
   font-weight: 400;
   padding-bottom: 30px;
 }
+
 .card {
   border: 2px solid var(--Light-gray);
   border-radius: 10px;
@@ -113,6 +123,7 @@ html {
   font-weight: 400;
   padding-bottom: 2px;
 }
+
 .mini__title {
   color: var(--White);
   font-weight: 500;
@@ -131,6 +142,7 @@ html {
   font-size: 1.8rem;
   margin-bottom: 2px;
 }
+
 .card__description {
   color: var(--Cool-gray);
   font-weight: 500;
@@ -157,7 +169,7 @@ html {
   }
 }
 /* ============================== */
-/* FORM */
+/* STEP CONTAINER  */
 /* ============================== */
 .step__container {
   width: 100%;
@@ -202,11 +214,15 @@ html {
   padding: 30px 20px;
   margin-right: auto;
 }
+
+/* STEP NUMBER AND NAME CONATAINER */
 .step__indecater {
   display: flex;
   align-items: center;
   padding-bottom: 30px;
 }
+
+/* STEP NUMBER */
 .indecater__num {
   border: 1px solid var(--Light-gray);
   width: 40px;
@@ -221,6 +237,7 @@ html {
   margin-right: 15px;
 }
 
+/* ACTIVE STEP NUMBER */
 .indecater__num.active {
   background-color: var(--Light-blue);
   color: var(--Marine-blue);
@@ -235,27 +252,24 @@ html {
     justify-content: center;
     height: 190px;
   }
+
   .step__indecater {
     padding: 0;
   }
+
   .step__indecater > .indecater__text {
     display: none;
   }
+
   .step__indecater > .indecater__num {
     margin: 0 10px;
   }
 }
 /* ============================== */
-/* FORM STEPS */
+/*  PLAN STEPS */
 /* ============================== */
-.step {
-  display: none;
-}
-.step.active {
-  display: inline-block;
-}
 
-.form__steps {
+.steps__container {
   grid-column-start: 2;
   grid-column-end: 3;
   padding-top: 25px;
@@ -266,7 +280,7 @@ html {
 }
 
 @media (max-width: 768px) {
-  .form__steps {
+  .steps__container {
     padding: 0;
     align-items: center;
   }
@@ -280,17 +294,21 @@ html {
 }
 
 /* personal info | step1 */
+
+/* form input list */
 .list {
   display: flex;
   flex-direction: column;
 }
 
+/* form input list item */
 .list__item {
   margin-bottom: 25px;
   display: flex;
   flex-direction: column;
 }
 
+/* input label div for label and waring*/
 .input__labe {
   display: flex;
   align-items: center;
@@ -298,16 +316,19 @@ html {
   padding-bottom: 5px;
 }
 
+/* label text */
 .label {
   color: var(--Marine-blue);
   font-weight: 500;
 }
 
+/* input warning */
 .warning {
   color: var(--Strawberry-red);
   font-weight: 500;
 }
 
+/* input */
 .input {
   padding: 10px;
   border: 2px solid var(--Cool-gray);
@@ -330,6 +351,7 @@ html {
 }
 
 /* select your plan | step2 */
+
 /* select plan warning */
 #select-plan-error {
   color: var(--Strawberry-red);
@@ -502,7 +524,7 @@ html {
   margin-bottom: 20px;
 }
 
-/* checkbox custom css */
+/* checkbox */
 .checkbox[type='checkbox'] {
   margin-right: 20px;
   -webkit-appearance: none;
@@ -530,6 +552,7 @@ html {
   }
 }
 
+/* checkbox checked */
 .checkbox[type='checkbox']:checked {
   border-color: var(--Purplish-blue);
   background-color: var(--Purplish-blue);
@@ -558,6 +581,7 @@ html {
   transform: scale(1);
 }
 
+/* card title */
 .card__text {
   margin-right: auto;
 }
@@ -575,6 +599,8 @@ html {
   padding-top: 10px;
   padding-bottom: 20px;
 }
+
+/* change plan button */
 .change__plan {
   border: none;
   background-color: transparent;
@@ -589,6 +615,7 @@ html {
   color: var(--Purplish-blue);
 }
 
+/* selected plan */
 #selected-plan {
   display: flex;
   align-items: center;
@@ -613,14 +640,17 @@ html {
   font-size: 1.9rem;
   font-weight: 500;
 }
-/* add line between selected plan and selected add-on */
+
+/* add border to the first child of li */
 #selected-addon > li:nth-child(1) {
   border-top: 1px solid var(--Cool-gray);
   padding-top: 25px;
 }
+
 #selected-addon > li > p:nth-child(1) {
   color: var(--Cool-gray);
 }
+
 #selected-addon > li > p:nth-child(2) {
   color: var(--Marine-blue);
 }
@@ -646,8 +676,8 @@ html {
     font-size: 2rem;
   }
 }
-/* last step | thank you */
 
+/* last step | thank you */
 .last__step {
   min-height: 100%;
   text-align: center;
@@ -660,9 +690,11 @@ html {
   margin-inline: auto;
   margin-bottom: 35px;
 }
+
 .last__step > .main__title {
   padding-bottom: 10px;
 }
+
 .last__step > .description {
   max-width: 500px;
   margin: 0 auto;
