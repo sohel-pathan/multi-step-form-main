@@ -54,7 +54,6 @@ setplan(addsonCards, monthlyAdsOnPrice, 'mo');
 const nextBtn = document.getElementById('next-button');
 const prevBtn = document.getElementById('prev-button');
 
-// NEXT STEP BUTTON
 // step number
 let stepNum = 0;
 
@@ -63,7 +62,7 @@ const selectPlanError = (text) => {
   document.getElementById('select-plan-error').textContent = text;
 };
 
-// handle next button
+// handle next step button
 nextBtn.addEventListener('click', (e) => {
   e.preventDefault();
   if (stepNum === 0) {
@@ -89,7 +88,7 @@ nextBtn.addEventListener('click', (e) => {
   } else return;
 });
 
-// handle previus button
+// handle previus step button
 prevBtn.addEventListener('click', (e) => {
   e.preventDefault();
   stepNum--;
@@ -98,7 +97,7 @@ prevBtn.addEventListener('click', (e) => {
 
 // fuction for handle steps
 const showStep = (x) => {
-  // remove plan select warning text
+  // remove select plan warning
   selectPlanError('');
 
   // handle sidebar step
@@ -138,24 +137,24 @@ const showStep = (x) => {
     formStep[x].classList.add('active');
   }
 };
-// show first step by default
+// show step on first load
 showStep(stepNum);
 
 // STEP-1 | PERSONAL INFO [ FORM-VALIDATION ]
 
-// function for showing warning on input
+// function for add warning
 const showError = (input, warningText) => {
   input.classList.add('error');
   input.parentElement.querySelector('.warning').textContent = warningText;
 };
 
-// function for remove warning of the input
+// function for remove warning
 const hideError = (input) => {
   input.classList.remove('error');
   input.parentElement.querySelector('.warning').textContent = '';
 };
 
-// selecte all forms input
+// select all form inputs
 const formInput = form.querySelectorAll('input');
 
 // function for form validation
@@ -200,7 +199,7 @@ toggle.addEventListener('click', (e) => {
   selectPlanError('');
   // selelct toggle container
   const toggle = e.target.parentElement;
-  // unselect selected plan card
+  // remove selected class from all plan card
   planCards.forEach((card) => card.classList.remove('selected'));
   // make selectedPlan object emply
   selectedPlan = {};
@@ -246,13 +245,14 @@ planCards.forEach((card) => {
 
 // STEP3 | ADD-ON
 addsonCards.forEach((card) => {
-  // addeventlistner to the add-on card
+  // addeventlistner to the add-on cards
   card.addEventListener('click', (e) => {
     let target = e.currentTarget;
     let checkbox = target.querySelector('.checkbox');
     // add selected class to the card
     target.classList.toggle('selected');
 
+    // checked box checked if box is selected
     if (target.classList.contains('selected')) {
       return (checkbox.checked = true);
     } else {
@@ -265,9 +265,9 @@ addsonCards.forEach((card) => {
 
 // RENDER SELECTED PLAN, SELECTED ADD-ON AND TOTAL AMOUNT
 const renderTotal = () => {
-  // make var to store total amount
+  // totalAmount to store total amount
   let totalAmount = 0;
-  // plan duration in full-form
+  // plan duration in full-form [mo to montly or yr to yearly]
   const planDuration = selectedPlan.planDur === 'mo' ? 'Monthly' : 'Yearly';
   // selecte element to append selected plan. add-on and total price
   const plan = document.getElementById('selected-plan');
@@ -317,15 +317,15 @@ const renderTotal = () => {
     totalAmount += parseInt(item.price);
   });
 
-  // set inner html for total
+  // inner html for total
   total.innerHTML = `<span>Total(
     per ${planDuration.slice(0, -2).toLocaleLowerCase()}) </span> 
       <span> $${totalAmount}/${selectedPlan.planDur}</span>`;
 };
 
-// function to handle change button on 4th step
+// function to handle change button
 changePlanBtn.addEventListener('click', () => {
-  // reassing stepNum to 0
+  // reassign stepNum to 0
   stepNum = 0;
   // show stepNum
   showStep(stepNum);
