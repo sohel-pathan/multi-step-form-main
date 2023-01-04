@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/multistep-form-bWCfkK6kW8)
-- Live Site URL: [Add live site URL here](https://multistep-form-23.netlify.app)
+- Solution URL: [solution URL](https://www.frontendmentor.io/solutions/multistep-form-bWCfkK6kW8)
+- Live Site URL: [live site URL](https://multistep-form-23.netlify.app)
 
 ## My process
 
